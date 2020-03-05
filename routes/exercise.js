@@ -9,7 +9,7 @@ router.post('/new-user', (req, res) => {
     console.log(`Requesting creation of user: ${username}`);
 
     if (username) {
-        if (!username in users) {
+        if (!(username in users)) {
             users[username] = { exercises: [] }
             res.send({ message: 'Successfully created new user' });
         } else {
@@ -22,20 +22,23 @@ router.post('/new-user', (req, res) => {
 
 router.post('/add', (req, res) => {
     const userId = req.body.userId;
-    const description = req.body.description || '';
+    const description = req.body.description || ' ';
     const duration = req.body.duration;
     const date = req.body.date;
 
     if (userId && duration && date) {
-        if (username in users) {
+        if (userId in users) {
             exercise = { date, description, duration };
-            users[userId][exercises].push(exercise);
+            users[userId]['exercises'].push(exercise);
+            console.log(`Added exercise to ${userId}: ${exercise}`);
+            res.send({ message: 'Successfully added exercise' });
         } else {
             res.send({ error: 'User not found'})
         }
     } else {
         res.send({ error: 'Missing exercise data, unable to store' });
     }
+    console.log(users)
 });
 
 router.get('/log', (req, res) => {
@@ -44,18 +47,23 @@ router.get('/log', (req, res) => {
     const to = req.query["to"];
     const limit = req.query["limit"];
 
-    console.log(req.query)
-
     if (userID && userID in users) {
-        let exercises = users[userID][exercises];
+        let exercises = users[userID]['exercises'];
 
         if (from && to) {
-            //Perform filtering
+            const fromDate = new Date(from);
+            const toDate = new Date(to);
+            exercises = exercises.filter(exercise => {
+                const exerciseDate = new Date(exercise.date)
+                return fromDate < exerciseDate && exerciseDate < toDate
+            })
         }
         if (limit) {
-            //Perform filtering
+            const totalExercises = limit > exercises.length ? exercises.length : limit
+            exercises = exercises.slice(0, totalExercises);
         }
-        
+
+        console.log(`Sending list of ${Object.keys(exercises).length} exercises`)
         res.send({ exercises })
     } else {
         res.send({ error: `Unable to retrieve user data for specified userId`})
