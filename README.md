@@ -56,7 +56,7 @@ Intended to allow users to create and log exercises, with functionality to query
 - GET `api/exercise/log?{userId}[&from][&to][&limit]` 
 
 | Parameter | Optional | Param Type | Value Type | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | `userId` | False | Body | String | User to query |
 | `from` | True |Body | UTC Date String | Date for lower bound of query |
 | `to` | True | Body | UTC Date String | Date for upper bound of query |
