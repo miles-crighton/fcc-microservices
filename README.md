@@ -11,7 +11,7 @@ Converts a given date (UTC or Unix formatting), returning both the UTC and Unix 
 - GET `api/timestamp/:date_string?`
 
 | Parameter | Required | Param Type | Value Type | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | `date_string` | False | Path | UTC/Unix Date String | Date to be processed |
 
 ### HeaderParser Microservice
