@@ -10,6 +10,10 @@ Converts a given date (UTC or Unix formatting), returning both the UTC and Unix 
 
 - GET `api/timestamp/:date_string?`
 
+| Parameter | Required | Param Type | Value Type | Description |
+| --- | --- | --- | --- |
+| `date_string` | False | Path | UTC/Unix Date String | Date to be processed |
+
 ### HeaderParser Microservice
 A simple service that returns information related to the request client.
 
@@ -21,13 +25,13 @@ via shorthand route.
 
 - POST `api/shorturl/new`: Log the given URL provided in body
 
-| Parameter | Param Type | Param Value | Description |
+| Parameter | Param Type | Value Type | Description |
 | --- | --- | --- | --- |
 | `address` | Body | String | URL to be shortened |
 
 - GET `api/shorturl/:url_id`: Redirect to URL stored for shortened url_id
 
-| Parameter | Param Type | Param Value | Description |
+| Parameter | Param Type | Value Type | Description |
 | --- | --- | --- | --- |
 | `url_id` | Path | String | Shortened URL ID |
 
@@ -36,13 +40,13 @@ Intended to allow users to create and log exercises, with functionality to query
 
 - POST `api/exercise/new-user`: Creates a new user to log exercises to.
 
-| Parameter | Param Type | Param Value | Description |
+| Parameter | Param Type | Value Type | Description |
 | --- | --- | --- | --- |
 | `username` | Body | String | Username to be added |
 
 - POST `api/exercise/add`: Parse in form-data body to add an exercise 
 
-| Parameter | Param Type | Param Value | Description |
+| Parameter | Param Type | Value Type | Description |
 | --- | --- | --- | --- |
 | `userId` | Body | String | User to log exercise to |
 | `description` | Body | String | Description of exercise |
@@ -51,7 +55,7 @@ Intended to allow users to create and log exercises, with functionality to query
 
 - GET `api/exercise/log?{userId}[&from][&to][&limit]` 
 
-| Parameter | Optional | Param Type | Param Value | Description |
+| Parameter | Optional | Param Type | Value Type | Description |
 | --- | --- | --- | --- |
 | `userId` | False | Body | String | User to query |
 | `from` | True |Body | UTC Date String | Date for lower bound of query |
@@ -60,7 +64,11 @@ Intended to allow users to create and log exercises, with functionality to query
 
 ### FileAnalyse Microservice
 Takes a given file provided by the client and returns related meta data.
-- POST `api/fileanalyse/`: (Content-type: multipart/form-data)
+- POST `api/fileanalyse/`: Returns meta data for posted file
+
+| Parameter | Param Type | Value Type | Description |
+| --- | --- | --- | --- |
+| `upfile` | Form-data | File | File to be analysed |
 
 ## Technologies:
 - Node
