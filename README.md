@@ -1,6 +1,8 @@
-# Micro-service projects from FCC
+# Microservice projects from FCC
 
-The project directory for directions can be found here:
+This repository is the backend API implementation of the microservice projects detailed in the FCC curriculum.
+
+The FCC project directory can be found here:
 [https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/)
 
 ## Summary of API
@@ -71,6 +73,6 @@ Takes a given file provided by the client and returns related meta data.
 | --- | --- | --- | --- |
 | `upfile` | Form-data | File | File to be analysed |
 
-## Technologies:
+## Technologies
 - Node
 - Express
