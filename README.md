@@ -38,13 +38,13 @@ via shorthand route.
 ### Exercise Microservice
 Intended to allow users to create and log exercises, with functionality to query exercise entries.
 
-- POST `api/exercise/new-user`: Creates a new user to log exercises to.
+- POST `api/exercise/new-user`: Creates a new user to log exercises to
 
 | Parameter | Param Type | Value Type | Description |
 | --- | --- | --- | --- |
 | `username` | Body | String | Username to be added |
 
-- POST `api/exercise/add`: Parse in form-data body to add an exercise 
+- POST `api/exercise/add`: Parse in form-data body to add an exercise to the provided user
 
 | Parameter | Param Type | Value Type | Description |
 | --- | --- | --- | --- |
@@ -53,7 +53,8 @@ Intended to allow users to create and log exercises, with functionality to query
 | `date` | Body | UTC Date String | Date of exercise |
 | `length` | Body | Integer | Duration of exercise |
 
-- GET `api/exercise/log?{userId}[&from][&to][&limit]` 
+- GET `api/exercise/log?{userId}[&from][&to][&limit]`: Returns an object containing logged exercises
+meeting query parameters
 
 | Parameter | Optional | Param Type | Value Type | Description |
 | --- | --- | --- | --- | --- |
