@@ -20,9 +20,11 @@ Takes a given URL, performs a DNS resolution to check if valid, then stores it l
 via shorthand route.
 
 - POST `api/shorturl/new`: Log the given URL provided in body { address }
+
 | Params | Type | Description |
 | --- | --- | --- |
 | `address` | Body | URL to be shortened |
+
 - GET `api/shorturl/:url_id`: Redirect to URL stored for shortened url_id
 
 ### Exercise Microservice
