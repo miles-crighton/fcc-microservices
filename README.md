@@ -21,11 +21,15 @@ via shorthand route.
 
 - POST `api/shorturl/new`: Log the given URL provided in body { address }
 
-| Params | Type | Description |
-| --- | --- | --- |
-| `address` | Body | URL to be shortened |
+| Params | Param Type | Param Value | Description |
+| --- | --- | --- | --- |
+| `address` | Body | String | URL to be shortened |
 
 - GET `api/shorturl/:url_id`: Redirect to URL stored for shortened url_id
+
+| Params | Param Type | Param Value | Description |
+| --- | --- | --- | --- |
+| `url_id` | Path | String | Shortened URL ID |
 
 ### Exercise Microservice
 Intended to allow users to create and log exercises, with functionality to query exercise entries.
